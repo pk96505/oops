@@ -24,7 +24,7 @@ int main(void){
 }
 
 double bill(double unit){
-	double amount=50;
+	double amount=0;
 	for(int i=1;i<=unit;i++){
 	if(i<=100)
 	{
@@ -38,6 +38,10 @@ double bill(double unit){
 	{
 	amount+=0.9;
 	}
+	}
+	if(amount<50)
+	{
+	return 50;	
 	}
 	if (amount>300)
 	{
