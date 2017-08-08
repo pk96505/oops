@@ -2,12 +2,11 @@
 
 using namespace std;
 
-void prevnext (int x, int& prev, int& next)
+void prevnext (int &x, int& prev, int& next)
 	{
   	prev = x-1;
   	next = x+1;
 }
-
 
 int main (){
   	int a, b, c;
