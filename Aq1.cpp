@@ -1,9 +1,10 @@
 #include<iostream>
 
 using namespace std;
+
 class Bank_Account{
 	char c_name[30];
-	long c_acc_no;
+	int c_acc_no;
 	char acc_type[10];
 	long balance;
 public:
@@ -14,39 +15,53 @@ public:
 	void deposit_amount();
 	void withdraw();
 	void display();
+	int check_acc_no(){
+	return c_acc_no;
+	}
 };
-	long acc=3413101001000;
+	int acc=9000;
+int check_acc_no(int);
 
 int main(){
-	
-	int c;
+	int c,i;
 	Bank_Account acc[3];
-	cout<<"1.Create account first: ";
 	for(int i=0;i<3;i++){
 	acc[i].create_acc();
 	}
 	do{
-	cout<<"1.To deposit in Account."<<endl;
-	cout<<"2.To withdraw from Account."<<endl;
-	cout<<"3.To display your Account detail"<<endl;
-	cout<<"4.Exit."<<endl;
-	cout<<"  Enter your choice : ";
+	cout<<"   1.To deposit in Account."<<endl;
+	cout<<"   2.To withdraw from Account."<<endl;
+	cout<<"   3.To display your Account detail"<<endl;
+	cout<<"   4.Exit."<<endl;
+	cout<<endl<<"   Enter your choice : ";
 	cin>>c;
 	switch(c){
 	case 1:
-	cout<<"Enter index: ";
+	cout<<"Enter Account No.: ";
 	cin>>c;
-	acc[c].deposit_amount();
+	for(i=0;i<3;i++){
+	if(acc[i].check_acc_no()==c)
+	break;
+	}
+	acc[i].deposit_amount();
 	break;
 	case 2:
-	cout<<"Enter index: ";
+	cout<<"Enter Account No.:";
 	cin>>c;
-	acc[c].withdraw();
+	for(i=0;i<3;i++){
+        if(acc[i].check_acc_no()==c)
+        break;
+        }
+	acc[i].withdraw();
 	break;
 	case 3:
-	cout<<"Enter index: ";
+	cout<<"Enter Account No.: ";
 	cin>>c;
-	acc[c].display();
+	 for(i=0;i<3;i++){
+        if(acc[i].check_acc_no()==c)
+        break;
+        }
+	acc[i].display();
 	break;
 	case 4:
 	exit(0);
@@ -54,6 +69,7 @@ int main(){
 	}while(true);
 	return 0;
 }
+	
 	
 
 void Bank_Account::create_acc(){
@@ -88,11 +104,12 @@ void Bank_Account::withdraw(){
 }
 
 void Bank_Account::display(){
-	
-	cout<<"Account holder name: "<<c_name<<endl;
-	cout<<"Account number: "<<c_acc_no<<endl;
-	cout<<"Accoutn type: "<<acc_type<<endl;
-	cout<<"Total balance: "<<balance<<endl;
+	cout<<endl<<".................................................."<<endl;
+	cout<<"   Account holder name: "<<c_name<<endl;
+	cout<<"   Account number: "<<c_acc_no<<endl;
+	cout<<"   Accoutn type: "<<acc_type<<endl;
+	cout<<"   Total balance: "<<balance<<endl;
+	cout<<".................................................."<<endl;
 }
 	
 	

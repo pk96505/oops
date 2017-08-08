@@ -4,7 +4,6 @@ using namespace std;
 
 class Employee{
 	int employee_id;
-static  int nextid;
 	char employee_name[30];
 	int date;
 	int month;
@@ -18,18 +17,30 @@ public:
 	void display_employee_detail();
 };
 
-int Employee::nextid=1700;
+int id=1700;
+
+int main(){
+	Employee emp[3];
+	for(int i=0;i<3;i++){
+	emp[i].add_employee_detail();
+	}
+	for(int j=0;j<3;j++){
+	emp[j].display_employee_detail();
+	}
+}
 
 void Employee::display_employee_detail(){
-	if(nextid==1700){
-	cout<<"There is no employee please add employee first."<<endl<<endl;
-	add_employee_detail();
+	cout<<endl<<"................................."<<endl;
+	cout<<endl<<"   Employee Name: "<<employee_name<<endl;
+	cout<<"   Employee ID: "<<employee_id<<endl;
+	cout<<"   Employee DOB: "<<date<<"-"<<month<<"-"<<year<<endl;
+	cout<<"   Salary : "<<salary<<endl;
+	cout<<"................................."<<endl;
 	}
 
-void Employee::add_employee_detail(char name,int date,int month,int year ){
-	
+void Employee::add_employee_detail(){
 	cout<<"Name of Employee: ";
-	gets(employee_name);
+	cin>>employee_name;
 	cout<<"Enter date of birth: "<<endl;
 	cout<<"Date: ";
 	cin>>date;
@@ -37,6 +48,10 @@ void Employee::add_employee_detail(char name,int date,int month,int year ){
 	cin>>month;
 	cout<<"Year: ";
 	cin>>year;
+	employee_id=id;
+	id++;
+}
+	
 	
 
 
