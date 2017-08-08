@@ -3,7 +3,7 @@
 using namespace std;
 class Bank_Account{
 	char c_name[30];
-static	long c_acc_no;
+	long c_acc_no;
 	char acc_type[10];
 	long balance;
 public:
@@ -15,51 +15,55 @@ public:
 	void withdraw();
 	void display();
 };
-
-long Bank_Account::c_acc_no=341310100000;
+	long acc=3413101001000;
 
 int main(){
 	
-	int x=0;
 	int c;
+	Bank_Account acc[3];
+	cout<<"1.Create account first: ";
+	for(int i=0;i<3;i++){
+	acc[i].create_acc();
+	}
 	do{
-	Bank_Account acc[x];
-	cout<<"1.To create New Account."<<endl;
-	cout<<"2.To deposit in Account."<<endl;
-	cout<<"3.To withdraw from Account."<<endl;
-	cout<<"4.To display your Account detail"<<endl;
-	cout<<"5.Exit."<<endl;
+	cout<<"1.To deposit in Account."<<endl;
+	cout<<"2.To withdraw from Account."<<endl;
+	cout<<"3.To display your Account detail"<<endl;
+	cout<<"4.Exit."<<endl;
 	cout<<"  Enter your choice : ";
 	cin>>c;
 	switch(c){
-	case 1: 
-	acc[x].create_acc();
-	x++;
+	case 1:
+	cout<<"Enter index: ";
+	cin>>c;
+	acc[c].deposit_amount();
 	break;
 	case 2:
-	acc[x].deposit_amount();
+	cout<<"Enter index: ";
+	cin>>c;
+	acc[c].withdraw();
 	break;
 	case 3:
-	acc[x].withdraw();
+	cout<<"Enter index: ";
+	cin>>c;
+	acc[c].display();
 	break;
 	case 4:
-	acc[x].display();
-	break;
-	case 5:
 	exit(0);
 	}
 	}while(true);
 	return 0;
 }
-
+	
 
 void Bank_Account::create_acc(){
 	cout<<"Enter your name : ";
 	cin>>c_name;
 	cout<<"Enter account type Saving/Current :";
 	cin>>acc_type;
+	c_acc_no=acc;
+	acc++;
 	display();
-	c_acc_no++;
 }
 
 void Bank_Account::deposit_amount(){
@@ -74,6 +78,11 @@ void Bank_Account::withdraw(){
 	double amount;
 	cout<<"Enter amount to withdraw from account :";
 	cin>>amount;
+	if(amount>balance){
+	cout<<"Insufficient Balance: ";
+	cout<<balance<<endl;
+	return;
+	}
 	balance-=amount;
 	display();
 }
