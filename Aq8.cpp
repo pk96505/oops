@@ -18,7 +18,7 @@ int main()
     } 
     cout<<endl<<"..................."<<endl<<endl;
     for(int j=0;j<length;j++){
-    cout<<"  array2["<<i<<"]="<<array2[j]<<endl;
+    cout<<"  array2["<<j<<"]="<<array2[j]<<endl;
     } 
     cout<<endl;
  	delete[] array1;
