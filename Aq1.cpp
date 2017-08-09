@@ -73,8 +73,9 @@ int main(){
 	
 
 void Bank_Account::create_acc(){
-	cout<<"Enter your name : ";
-	cin>>c_name;
+	cout<<"Enter your name :";
+	cin.ignore();
+	cin.getline(c_name,30);
 	cout<<"Enter account type Saving/Current :";
 	cin>>acc_type;
 	c_acc_no=acc;
@@ -105,7 +106,7 @@ void Bank_Account::withdraw(){
 
 void Bank_Account::display(){
 	cout<<endl<<".................................................."<<endl;
-	cout<<"   Account holder name: "<<c_name<<endl;
+	cout<<"   Account holder name:"<<c_name<<endl;
 	cout<<"   Account number: "<<c_acc_no<<endl;
 	cout<<"   Accoutn type: "<<acc_type<<endl;
 	cout<<"   Total balance: "<<balance<<endl;

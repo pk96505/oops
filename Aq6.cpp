@@ -43,7 +43,7 @@ using namespace std;
 
 	void KILOS::getdata(){
                         cout<<endl<<"........................................";
-                        cout<<endl<<"     Enter the values for Kilogram: ";
+                        cout<<endl<<"     Enter the values in Kilogram: ";
                         cin>>kg;
                         cout<<endl<<"     Enter the value of grams: ";
                         cin>> grams;
