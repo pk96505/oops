@@ -41,13 +41,14 @@ matrix trans(matrix m1){
 matrix mul(matrix m1,matrix m2){
 	matrix m3;
 	int i,j,k;
-	m3.m[0][0]=0;
-	for(i=0;i<3;i++)
-		for(j=0;j<3;j++){
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            m3.m[i][j]=0;
 			for(k=0;k<3;k++){                                                                                                                                 
- 			m3.m[i][j]+=m1.m[j][k]*m2.m[k][j];
-		}
-	}
+ 			m3.m[i][j]=m3.m[i][j]+m1.m[i][k]*m2.m[k][j];
+            }
+        }
+    }
 	return(m3);
 }
 
