@@ -3,15 +3,13 @@
 using namespace std;
 
 class matrix{
-
  	int r,c;
  	int **p;
  public:
  	matrix (int n1, int n2);
+ 	int elementvalue(int i,int j);
 	void getelement(int i,int j,int value);
-	~matrix();
-	friend matrix trans(matrix);
-	friend matrix mul(matrix, matrix);
+	void displayelement(int n1,int n2);
 };
 
 int main(){
@@ -20,51 +18,68 @@ int main(){
 	cin>>n;
 	cout<<"  Columns: ";
 	cin>>m;
-	matrix m1(n,m);
-	cout<<"  Please enter the values: ";
+	matrix m1(n,m),m2(n,m),m3(n,m);
+	cout<<"  Please enter the values: "<<endl;
 	for(int i=0 ; i<n ; i++){
 		for(int j=0 ; j<m ; j++){
+			cout<<"  Matrix1["<<i<<"]["<<j<<"] = ";
 			cin>>value;
-			m1.getelement(i,j,value)
+			m1.getelement(i,j,value);
 		}
 	}
-	matrix mat1,mat2,mat3,mat4;
-	mat1.read();
-	cout<<endl<<"The matrix is as follows:";
-	mat1.display();
-	mat3.read();
-	cout<<endl<<"The matrix is as follows:";
-	mat3.display();
-	mat2=trans(mat1);
-	cout<<endl<<"Transposed matrix:";
-	mat2.display();
-	mat4=mul(mat1,mat3);
-	cout<<endl<<"Multiplication on matrixs:";
-	mat4.display();
+	cout<<"........................................"<<endl;
+
+	for(int i=0 ; i<n ; i++){
+		for(int j=0 ; j<m ; j++){
+			cout<<"  Matrix2["<<i<<"]["<<j<<"] = ";
+			cin>>value;
+			m2.getelement(i,j,value);
+		}
+	}
+	cout<<"  Matrix1 : "<<endl;
+	m1.displayelement(n,m);
+	cout<<endl<<"  Matrix2 : "<<endl;
+	m2.displayelement(n,m);
+
+	for(int i=0;i<n;i++)
+		for(int j=0;j<m;j++){
+			value=m1.elementvalue(i,j);
+ 			m3.getelement(j,i,value);
+		}
+	cout<<"  Transpose of Matrix1 : "<<endl;
+	m3.displayelement(n,m);
+
+	
 	return 0;
 }
 
-
-matrix trans(matrix m1){
-	matrix m2;
-	int i,j;
-	for(i=0;i<3;i++)
-		for(j=0;j<3;j++){
- 			m2.m[i][j]=m1.m[j][i];
-		}
-	return(m2);
+matrix::matrix(int n1,int n2){
+	r=n1;
+	c=n2;
+	p=new int *[r];
+	for(int i=0 ; i<r ; i++){
+		p[i] = new int[c];
+	}
 }
 
-matrix mul(matrix m1,matrix m2){
-	matrix m3;
-	int i,j,k;
-    for(i=0;i<3;i++){
-        for(j=0;j<3;j++){
-            m3.m[i][j]=0;
-			for(k=0;k<3;k++){                                                                                                                                 
- 			m3.m[i][j]=m3.m[i][j]+m1.m[i][k]*m2.m[k][j];
-            }
-        }
-    }
-	return(m3);
+void matrix::getelement(int i,int j,int value){
+	p[i][j]=value;
+}
+
+void matrix::displayelement(int n1,int n2){
+	r=n1;
+	c=n2;
+	for(int i=0 ; i<n1 ; i++ ){
+			cout<<endl;
+		for(int j=0 ; j<n2 ; j++){
+			cout<<p[i][j]<<"\t";
+		}
+	}
+	cout<<endl;
+}
+
+int matrix::elementvalue(int i,int j){
+	int value;
+	value=p[i][j];
+	return (value);
 }
