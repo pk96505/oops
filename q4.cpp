@@ -49,7 +49,7 @@ int main(){
 	cout<<"  Transpose of Matrix1 : "<<endl;
 	m3.displayelement(n,m);
 
-	
+
 	return 0;
 }
 
