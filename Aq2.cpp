@@ -36,10 +36,10 @@ void Employee::display_employee_detail(){
 
 void Employee::add_employee_detail(){
 	cout<<"Name of the Employee: ";
-	cin.ignore();
+	cin.ignore(-1);
 	cin.getline(employee_name,30);
 	cout<<"Enter date of birth in the format of dd/mm/yyyy: ";
-	cin.ignore();
+	cin.ignore(-1);
 	cin.getline(D_O_B,12);
         cout<<"Enter the salary of the employee: ";
         cin>>salary;
