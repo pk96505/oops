@@ -7,38 +7,38 @@ class Box{
 		float breath;
 		float height;
 	public:
-		Box(){
-			height=10.0;
-		}
-
-		float volume(float l, float b){
-			length=l;
-			breath=b;
-			
-			return (length*breath*height);
-		}
-
-/*		float volume(float l,float b,float h=10){
+		Box(float l,float b,float h){
 			length=l;
 			breath=b;
 			height=h;
-			return (l*b*h);
 		}
-*/
+
+		Box(float l,float b){
+			length=l;
+			breath=b;
+			height=10;
+		}
+
+		float volume(){
+			return (length*breath*height);
+		}
 };
 
 int main(){
-	Box B1,B2;
-	float l,b,h,vol1,vol2;
-	cout<<"  Enter the dimension of Box : ";
-	cout<<endl<<"  Length : ";
+	float vol1,vol2;
+	float l,b,h;
+	cout<<"  Enter the length of box : ";
 	cin>>l;
-	cout<<endl<<"  Breath : ";
+	cout<<"  Enter the breath of box : ";
 	cin>>b;
-	cout<<endl<<"  Height : ";
+	cout<<"  Enter the height of box : ";
 	cin>>h;
-	vol1=B1.volume(l,b);
-	cout<<"  Volume is : "<<vol1;
+
+	Box B1(l,b,h),B2(l,b);
+	vol1=B1.volume();
+	vol2=B2.volume();
+	cout<<"  Volume of Box(B1) : "<<vol1<<endl;
+	cout<<"  Volume of Box(B2) whose height is 10 : "<<vol2<<endl;
 
 	return 0;
 }
