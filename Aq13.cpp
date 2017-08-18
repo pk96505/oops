@@ -12,6 +12,37 @@ public:
     void displayelement(int n1,int n2);
 };
 
+matrix::matrix(int n1,int n2){
+    r=n1;
+    c=n2;
+    p=new int *[r];
+    for(int i=0 ; i<r ; i++){
+        p[i] = new int[c];
+    }
+}
+
+void matrix::getelement(int i,int j,int value){
+    p[i][j]=value;
+}
+
+void matrix::displayelement(int n1,int n2){
+    r=n1;
+    c=n2;
+    for(int i=0 ; i<n1 ; i++ ){
+        cout<<endl<<"  ";
+        for(int j=0 ; j<n2 ; j++){
+            cout<<p[i][j]<<"\t";
+        }
+    }
+    cout<<endl;
+}
+
+int matrix::elementvalue(int i,int j){
+    int value;
+    value=p[i][j];
+    return (value);
+}
+
 int main(){
     int n,m,value;
     cout<<"  Enter size of matrix."<<endl<<"  Rows: ";
@@ -27,7 +58,7 @@ int main(){
             m1.getelement(i,j,value);
         }
     }
-    cout<<"........................................"<<endl;
+    cout<<"............................."<<endl;
     
     for(int i=0 ; i<n ; i++){
         for(int j=0 ; j<m ; j++){
@@ -51,35 +82,4 @@ int main(){
     
     
     return 0;
-}
-
-matrix::matrix(int n1,int n2){
-    r=n1;
-    c=n2;
-    p=new int *[r];
-    for(int i=0 ; i<r ; i++){
-        p[i] = new int[c];
-    }
-}
-
-void matrix::getelement(int i,int j,int value){
-    p[i][j]=value;
-}
-
-void matrix::displayelement(int n1,int n2){
-    r=n1;
-    c=n2;
-    for(int i=0 ; i<n1 ; i++ ){
-        cout<<endl;
-        for(int j=0 ; j<n2 ; j++){
-            cout<<p[i][j]<<"\t";
-        }
-    }
-    cout<<endl;
-}
-
-int matrix::elementvalue(int i,int j){
-    int value;
-    value=p[i][j];
-    return (value);
 }
