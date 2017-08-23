@@ -20,6 +20,7 @@ ostream & operator << (ostream &out, matrix &M){
 			out<<M.m[i][j]<<"\t";
 					}
 			}
+			return out;
 }
 
 istream & operator >> (istream &in, matrix &M){
@@ -30,6 +31,7 @@ istream & operator >> (istream &in, matrix &M){
 			cout<<"m["<<i<<"]["<<j<<"] = ";
 			in>>M.m[i][j];
 			}
+			return in;
 }
 
 matrix trans(matrix m1){
@@ -63,13 +65,13 @@ int main(){
 	cout<<mat1;
 	cin>>mat3;
 	cout<<endl<<"The matrix is as follows:";
-	cout>>mat3;
+	cout<<mat3;
 	mat2=trans(mat1);
 	cout<<endl<<"Transposed matrix:";
-	cout>>mat2;
+	cout<<mat2;
 	mat4=mul(mat1,mat3);
 	cout<<endl<<"Multiplication on matrixs:";
-	cout>>mat4;
+	cout<<mat4;
 	return 0;
 }
 
