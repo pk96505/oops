@@ -30,8 +30,8 @@ public:
 
 Polar convert_p_to_r( Polar &P ){
     Rectangle R;
-    R.x = P.r * cos (a);
-    R.y = P.r * sin (a);
+    R.x = P.r * cos (P.a);
+    R.y = P.r * sin (P.a);
     return R;
 }
 
