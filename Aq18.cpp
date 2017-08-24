@@ -15,7 +15,6 @@ public:
 	friend istream & operator >> (istream &in, Derived &D);
 	void volume(){
 		area = length*breadth;
-		//return area;
 	}
 };
 
