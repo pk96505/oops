@@ -3,20 +3,20 @@
 using namespace std;
 
 class Base{
+protected:
 	int x;
 	int y;
-public:
 	Base(int x1,int y1){
 		x = x1;
 		y = y1;
 	}
-	void display_B(){
+	void display(){
 		cout<<"  Base class"<<endl;
 		cout<<"  X : "<<x<<" |  Y : "<<y<<endl;
 	}
 };
 
-class Derived : public Base{
+class Derived : private Base{
 	int a;
 	int b;
 public:
@@ -24,7 +24,10 @@ public:
 		a = a1;
 		b = b1;
 	}
-	void display_D(){
+	void display_B( Derived &d){
+		d.Base::display();
+	}
+	void display(){
 		cout<<"  Derived class"<<endl;
 		cout<<"  A : "<<a<<" |  B : "<<b<<endl;
 	}
@@ -32,8 +35,8 @@ public:
 
 int main(){
 	Derived D(1,2,3,4);
-	D.display_B();
-	D.display_D();
+	D.display_B(D);
+	D.display();
 	return 0;
 }
 
