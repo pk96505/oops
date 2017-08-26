@@ -24,7 +24,7 @@ public:
 		a = a1;
 		b = b1;
 	}
-	void display_B( Derived &d){
+	void display( Derived &d){
 		d.Base::display();
 	}
 	void display(){
@@ -35,7 +35,7 @@ public:
 
 int main(){
 	Derived D(1,2,3,4);
-	D.display_B(D);
+	D.display(D);
 	D.display();
 	return 0;
 }
