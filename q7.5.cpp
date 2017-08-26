@@ -11,11 +11,10 @@ class Rectangle{
   double x;
   double y;
 public:
-  friend Polar convert_p_to_r( Polar &P);
-  friend Rectangle convert_r_to_p( Rectangle &R);
-  friend ostream & operator << (ostream &out, const Rectangle &P);
-  friend istream & operator >> (istream &in, Rectangle &P);
-
+  	friend Polar convert_p_to_r( Polar &P);
+  	friend Rectangle convert_r_to_p( Rectangle &R);
+  	friend ostream & operator << (ostream &out, const Rectangle &P);
+  	friend istream & operator >> (istream &in, Rectangle &P);
 };
 
 class Polar{
@@ -26,7 +25,7 @@ public:
 	friend Rectangle convert_r_to_p( Rectangle &R);
 	friend ostream & operator << (ostream &out, const Polar &P);
   	friend istream & operator >> (istream &in, Polar &P);
-}
+};
 
 Polar convert_p_to_r( Polar &P ){
     Rectangle R;
