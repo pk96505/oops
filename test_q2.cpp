@@ -26,6 +26,7 @@ public:
 ostream & operator << (ostream &out, const complex &c){
 	out<<c.real<<" + "<<c.imag<<"i"<<endl;
 	out<<"******************************************"<<endl<<endl;
+	return out;
 }
 
 istream & operator >> (istream &in, complex &c){
@@ -33,6 +34,7 @@ istream & operator >> (istream &in, complex &c){
 	in>>c.real;
 	cout<<"  Enter imaginary part: ";
 	in>>c.imag;
+	return in;
 }
 
 complex complex::operator + ( complex &c ){
@@ -44,8 +46,8 @@ complex complex::operator + ( complex &c ){
 
 complex complex::operator * ( complex &m ){
 	complex mul;
-	mul.real = real * m.real;
-	mul.imag = imag * m.imag;
+	mul.real = (real*m.real) - (imag*m.imag);
+	mul.imag = (real*m.imag) + (imag*m.real);
 	return mul;
 }
 
@@ -58,8 +60,8 @@ complex complex::operator - ( complex &s ){
 
 complex complex::operator / ( complex &d ){
 	complex div;
-	div.real = real / d.real;
-	div.imag = imag / d.imag;
+	div.real = ((real*d.real) + (imag*d.imag)) / ((d.real*d.real)+(d.imag*d.imag));
+	div.imag = ((d.real*imag) - (real*d.imag)) / ((d.real*d.real)+(d.imag*d.imag));
 	return div;
 }
 
