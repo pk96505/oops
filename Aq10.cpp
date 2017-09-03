@@ -39,8 +39,10 @@ void display(Length obj){
 int main(){
 	Length line1(20);
 	Length line2 = line1; //It calls copy constructor
+	Length line3(10);
 	display(line1);
 	display(line2);
+	display(line3);
 	return 0;
 }
 
