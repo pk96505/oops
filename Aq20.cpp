@@ -51,6 +51,9 @@ public:
 	void display2(){
 		cout<<"  DerivedL2 : "<<b<<endl;
 	}
+    ~derivedL2(){
+        cout<<"  Delete derivedL2....."<<endl;
+    }
 };
 
 int main(){
