@@ -32,6 +32,13 @@ public:
 		emp_id = i;
 		salary = s;
 	}
+	void setsalary(int s){
+		salary = s;
+	}
+
+	int getsalary(){
+		return salary;
+	}
 
 	void display(){
 		cout<<"  Name : "<<emp_name<<endl;
@@ -40,6 +47,29 @@ public:
 		dob.display_d();
 	}
 };
+
+class Manager{
+	float bonus;
+	Employee e[5];
+public:
+	void getbonus();
+	void setbonus();
+	void addemployees_managed();
+	void getemployees_managed();
+};
+
+void Manager::addemployees_managed(){
+	
+}
+
+void Manager::setbonus(){
+	float s,total_salary=0;
+	cout<<"  Enter bonus of Manager : ";
+	cin>>bonus;
+	s = getsalary();
+	total_salary = s+bonus;
+	setsalary(total_salary);
+}
 
 int main(){
 	Employee e("Pankaj",101,20000,25,01,1994);
