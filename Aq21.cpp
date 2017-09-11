@@ -6,8 +6,6 @@
 using namespace std;
 
 int emp =0;
-int id = 1;
-int salary = 25000;
 
 class Date{
 	int dd,mm,yyyy;
@@ -43,29 +41,27 @@ public:
 	}
 */
 	void addemployees_detail(){
-		//char name[30];
 		cout<<"  Enter the name of Employee : ";
-		//cin.ignore(-1);
-		//cin.getline(name,30);
-		//strcpy(emp_name,name);
 		cin>>emp_name;
-		emp_id = id;
-		emp_salary = salary;
+		cout<<"  Enter ID of Employee : ";
+		cin>>emp_id;
+		cout<<"  Enter salary of Employee : ";
+		cin>>emp_salary; 
 		dob.putdob();
-		id++;
 	}
+
 	void setsalary(int s){
-		salary = s;
+		emp_salary = s;
 	}
 
 	int getsalary(){
-		return salary;
+		return emp_salary;
 	}
 
 	void display_emp_detail(){
 		cout<<"  Name : "<<emp_name<<endl;
 		cout<<"  ID : "<<emp_id<<endl;
-		cout<<"  Salary : "<<salary<<endl;
+		cout<<"  Salary : "<<emp_salary<<endl;
 		dob.display_d();
 	}
 };
@@ -75,15 +71,23 @@ class Manager:protected Employee{
 	int no_emp;
 	Employee e[5];
 public:
+	int m;
 	int i;
+	float salary;
 	void getbonus();
 	void setbonus(int bonus);
 	void addmanager_detail(char * n){
 		char c;
 		strcpy(emp_name,n);
-		emp_id = id;
+		cout<<"  Enter ID of Manager : ";
+		cin>>emp_id;
+		cout<<"  Enter salary of Manager : ";
+		cin>>salary;
+		setsalary(salary);
 		cout<<"  Enter bonus : ";
 		cin>>bonus;
+		setbonus(bonus);
+		dob.putdob();
 		cout<<"  Do you want to add employee to the Manager (Y/N) : ";
 		cin>>c;
 		if(c=='Y'||c=='y'){
@@ -92,16 +96,13 @@ public:
 		else{
 			no_emp = emp;
 		}
-		setbonus(bonus);
-		dob.putdob();
 	}
+
 	void addemployees_managed(){
-		int m;
 		cout<<"  How many employee do you want to add to this Manager (Max. is 5) : ";
 		cin>>m;
 		for(i=0; i<m; i++){
 			e[i].addemployees_detail();
-			e[i].display_emp_detail();
 			no_emp = emp+1;
 			emp++;
 		}
@@ -114,8 +115,16 @@ public:
 	}
 
 	void display_m(){
+		cout<<"  Manager detail "<<endl<<endl;
 		display_emp_detail();
 		cout<<"  Total Employee managed by Manager is : "<<no_emp<<endl;
+	}
+
+	void display_e(){
+		cout<<endl<<"  Detail of Employees "<<endl;
+		for (int i=0; i<m; i++){
+			e[i].display_emp_detail();
+		}
 	}
 };
 
@@ -138,4 +147,6 @@ int main(){
 	cin>>n;
 	m.addmanager_detail(n);
 	m.display_m();
+	m.display_e();
+
 }
