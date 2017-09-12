@@ -216,6 +216,7 @@ int main(){
 	int c=2,s=1,ch,j;
 	cur_acct c_a[c];
 	sav_acct s_a[s];
+	cout<<"  Enter detail of two current account holder and one saving account holder first."<<endl;
 	for(int i=0; i<c; i++){
 	c_a[i].putdetail_c();	
 	}
