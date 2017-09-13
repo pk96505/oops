@@ -6,34 +6,24 @@
 using namespace std;
 
 class shape{
-	float v1;
-	float v2;
+	float length;
+	float height;
 	float area;
 public:
-	void get_data_rectangle(){
+	virtual void get_data(){
 		cout<<"*******************************"<<endl;
-		cout<<"  Detail of Rectangle "<<endl;
 		cout<<"  Enter length : ";
-		cin>>v1;
-		cout<<"  Enter breadth : ";
-		cin>>v2;
+		cin>>length;
+		cout<<"  Enter height : ";
+		cin>>height;
 	}
 
 	virtual void display_area(){
 		cout<<area<<endl;
 	}
 
-	void get_data_triangle(){
-		cout<<"*******************************"<<endl;
-		cout<<"  Detail of Triangle"<<endl;
-		cout<<"  Enter base : ";
-		cin>>v1;
-		cout<<"  Enter height : ";
-		cin>>v2;
-	}
-
 	float ar(){
-		return (v1*v2);
+		return (length*height);
 	}
 
 	void update_area(float a){
@@ -44,8 +34,8 @@ public:
 class triangle:public shape{
 
 public:
-	void getdata_t(){
-	get_data_triangle();
+	void getdata(){
+	get_data();
 	}
 
 	void area_triangle(){
@@ -64,8 +54,8 @@ public:
 class rectangle:public shape{
 
 public:
-	void getdata_r(){
-		get_data_rectangle();
+	void getdata(){
+		get_data();
 	}
 
 	void area_rectangle(){
@@ -94,13 +84,13 @@ int main(){
 		cin>>ch;
 		switch(ch){
 			case 1 :
-			t.getdata_t();
+			t.getdata();
 			t.area_triangle();
 			t.display_area_t();
 			break;
 
 			case 2 :
-			r.getdata_r();
+			r.getdata();
 			r.area_rectangle();
 			r.display_area_r();
 			break;
