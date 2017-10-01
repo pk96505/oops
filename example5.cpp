@@ -3,33 +3,26 @@
 using namespace std;
 
 int main(){
-	int count = 0;
-	int word = 0;
-	int line = 0;
-	string c;
-	string d;
+	int count = 1;
+	int word = 1;
+	int line = 1;
+	char c;
 
-	cout<<"  Input Text : ";
-	while (getline(cin, c)){
-    	if (c == "^D")
-        break;
-    	d += c+'\n';
-	}
+	cout<<"  Input Text to terminate please enter ! : ";
+	cin.get(c);
 
-	/*while(c != '\n'){
+	while(c != '!'){
 		cout.put(c);
 		count++;
-		cin.get(c);
-		if(c == ' '){
-			word++;
-		}
 		if(c == '\n' ){
 			line++;
 		}
-	}*/
-
-	while (getline(d))
-        count++;
-	cout<<endl<<d;
+		if(c == ' '){
+			word++;
+		}
+		cin.get(c);
+		
+	}
+	
 	cout<<"  \nNumber of characters = "<<count<<", words are "<<word+1<<" and line is "<<line<<endl;
 }
