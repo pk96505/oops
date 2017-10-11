@@ -18,7 +18,6 @@ int main(){
 		}	
 		file.seekg(0);
 		char ch;
-		//cout<<endl<<file.tellg();
 		while(file.good()){
 			file.get(ch);
 			cout<<ch;
