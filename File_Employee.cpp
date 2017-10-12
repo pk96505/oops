@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -13,6 +14,8 @@ public:
 	void add_employee_detail();
 	void display_employee_detail();
 };
+
+int id = 1;
 
 void Employee::display_employee_detail(){
 	cout<<endl<<"................................."<<endl;
@@ -40,19 +43,13 @@ int main(){
 	fstream iofile;
 	Employee e;
 	char moredata;
-	iofile.open("Employee.txt","ios::in | ios::out | ios::ate | ios::binary ");
+	iofile.open("Employee.txt",ios::in | ios::out );
 
-	if(iofile.fail()){
-		cout<<"  Error to file open.";
-		exit(0);
-	}
-
-	while('Y' == moredata){
+	do{
 		e.add_employee_detail();
-		iofile.write((char * )&e, sizeof(e));
+		iofile.write((char *) & e, sizeof(e));
 		cout<<"  Do you want to add more Employee detail (Y/N) : ";
 		cin>>moredata;
-	}
-
-	io
+		}while(moredata == 'Y');
+		iofile.close();
 }
