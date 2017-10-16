@@ -31,7 +31,7 @@ void Employee::display_employee_detail(){
 
 void Employee::add_employee_detail(){
 	fstream iofile("Employee27.txt",ios::out|ios::in|ios::app);
-		
+	iofile<<endl<<"................................."<<endl;
 	cout<<"Enter name of the Employee: ";
 	cin>>employee_name;
 	iofile<<"  Name of the Employee: "<<employee_name<<endl;
@@ -45,6 +45,7 @@ void Employee::add_employee_detail(){
     	cin>>salary;
 	iofile<<"  Salary : "<<salary<<endl;
 	iofile<<endl<<"................................."<<endl;
+	id++;
 	iofile.close();
 }
 

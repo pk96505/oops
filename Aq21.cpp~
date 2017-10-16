@@ -32,6 +32,7 @@ protected:
 	float emp_salary;
 	Date dob;
 public:
+
 	void addemployees_detail(){
 		cout<<"  Enter the name of Employee : ";
 		cin>>emp_name;

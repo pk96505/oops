@@ -1,8 +1,0 @@
-
-.................................
-  Name of the Employee: Pankaj
-  Employee ID: 1
-  Employee DOB : 25/01/1994
-  Salary : 30000
-
-.................................
