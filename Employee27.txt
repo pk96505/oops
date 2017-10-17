@@ -1,0 +1,16 @@
+
+.................................
+  Name of the Employee: Panakj
+  Employee ID: 3
+  Employee DOB : 10/01/1994
+  Salary : 30000
+
+.................................
+
+.................................
+  Name of the Employee: Gagan
+  Employee ID: 4
+  Employee DOB : 21/10/1995
+  Salary : 35000
+
+.................................

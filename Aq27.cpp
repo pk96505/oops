@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <cstdlib>
 
 using namespace std;
@@ -31,43 +30,49 @@ void Employee::display_employee_detail(){
 	}
 
 void Employee::add_employee_detail(){
-	cout<<"Name of the Employee: ";
+	fstream iofile("Employee27.txt",ios::out|ios::in|ios::app);
+	iofile<<endl<<"................................."<<endl;
+	cout<<"Enter name of the Employee: ";
 	cin>>employee_name;
+	iofile<<"  Name of the Employee: "<<employee_name<<endl;
+	cout<<"  Enter Employee ID : ";
+	cin>>employee_id;
+	iofile<<"  Employee ID: "<<employee_id<<endl;
 	cout<<"Enter date of birth in the format of dd/mm/yyyy: ";
     cin>>D_O_B;
+	iofile<<"  Employee DOB : "<<D_O_B<<endl;
     cout<<"Enter the salary of the employee: ";
     cin>>salary;
-	employee_id=id;
+	iofile<<"  Salary : "<<salary<<endl;
+	iofile<<endl<<"................................."<<endl;
 	id++;
+	iofile.close();
 }
 
 int main(){
 	int i=0;
-	fstream iofile;
 	Employee e;
 	char moredata;
-	iofile.open("Employee.txt",ios::in | ios::out );
-	iofile.open("Emp.dat",ios::binary|ios::out|ios::in);
-
-	if(iofile.fail()){
-		cout<<"  Error to file open.";
+	fstream iofile;
+	iofile.open("Employee27.txt",ios::out|ios::in);
+	if(!iofile.is_open()){
+		cout<<"  Error to file open."<<endl;
 		exit(0);
 	}
-
+	
 	do{
 		e.add_employee_detail();
-		iofile.write((char *) & e, sizeof(e));
+		//iofile.write((char * )&e, sizeof(e));
 		cout<<"  Do you want to add more Employee detail (Y/N) : ";
+		cout<<sizeof(e);
 		cin>>moredata;
-		}while(moredata == 'Y');
-		iofile.close();
 	}while(moredata == 'Y' || moredata == 'y');
-	iofile.seekg(0,ios::beg);
-	while(iofile.read((char * )&e, sizeof(e)))
-	{
-		e.display_employee_detail();
-			if(e.return_id()==4)
-				break;
-	}		
+
+	iofile.seekg(163);
+	string line;
+	while(iofile.good()){
+	getline(iofile,line);
+	cout<<line<<endl;
+	}
 	iofile.close();
 }
