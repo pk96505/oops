@@ -22,7 +22,7 @@ int main(int argc, char * agrv[]){
 	fstream float_file("Aq26_float.txt",ios::in);
 	fstream string_file("Aq26_string.txt",ios::in);
 	fstream merge_file("Aq26_merge.txt",ios::out|ios::in|ios::trunc);
-	if(!float_file.is_open()/*||!string_file.is_open()*/){
+	if(!float_file.is_open()||!string_file.is_open()){
 		cout<<"Error while opening the file";
 	}
 	else{

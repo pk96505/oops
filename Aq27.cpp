@@ -61,7 +61,7 @@ int main(){
 	
 	do{
 		e.add_employee_detail();
-		//iofile.write((char * )&e, sizeof(e));
+		iofile.write((char * )&e, sizeof(e));
 		cout<<"  Do you want to add more Employee detail (Y/N) : ";
 		cout<<sizeof(e);
 		cin>>moredata;
