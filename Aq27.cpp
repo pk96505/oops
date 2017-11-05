@@ -40,17 +40,35 @@ void Employee::display_employee_detail(){
 }
 
 void Employee::add_employee_detail(){
+<<<<<<< HEAD
 	cout<<"  Enter Record Number : ";
 	cin>>record_no;
 	cout<<"  Enter name of the Employee: ";
+=======
+	fstream iofile("Employee27.txt",ios::out|ios::in|ios::app);
+		
+	cout<<"Enter name of the Employee: ";
+>>>>>>> c6840e97e8c57fc84e7ea37bf29aefb5d6c5d0be
 	cin>>employee_name;
 	cout<<"  Enter Employee ID : ";
 	cin>>employee_id;
+<<<<<<< HEAD
 	cout<<"  Enter date of birth in the format of dd/mm/yyyy: ";
     cin>>D_O_B;
 	cout<<"  Enter the salary of the employee: ";
     cin>>salary;
     record++;
+=======
+	iofile<<"  Employee ID: "<<employee_id<<endl;
+	cout<<"Enter date of birth in the format of dd/mm/yyyy: ";
+    	cin>>D_O_B;
+	iofile<<"  Employee DOB : "<<D_O_B<<endl;
+    	cout<<"Enter the salary of the employee: ";
+    	cin>>salary;
+	iofile<<"  Salary : "<<salary<<endl;
+	iofile<<endl<<"................................."<<endl;
+	iofile.close();
+>>>>>>> c6840e97e8c57fc84e7ea37bf29aefb5d6c5d0be
 }
 
 int main(){
