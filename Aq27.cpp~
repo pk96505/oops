@@ -1,0 +1,71 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+
+using namespace std;
+
+class Employee{
+	int employee_id;
+	char employee_name[30];
+	char D_O_B[12];
+	double salary;
+public:
+
+	void add_employee_detail();
+	void display_employee_detail();
+	int return_id(){
+		return employee_id;
+	}
+};
+
+void Employee::display_employee_detail(){
+	cout<<endl<<"................................."<<endl;
+	cout<<endl<< "  Name of the Employee: "<<employee_name<<endl;
+	cout<<"   Employee ID: "<<employee_id<<endl;
+	cout<<"   Employee DOB: "<<D_O_B<<endl;
+	cout<<"   Salary : "<<salary<<endl;
+	cout<<"................................."<<endl;
+	}
+
+void Employee::add_employee_detail(){
+	cout<<"Enter name of the Employee: ";
+	cin>>employee_name;
+	cout<<"  Enter Employee ID : ";
+	cin>>employee_id;
+	cout<<"Enter date of birth in the format of dd/mm/yyyy: ";
+    	cin>>D_O_B;
+	cout<<"Enter the salary of the employee: ";
+    	cin>>salary;
+}
+
+int main(){
+	int i=0,count=0;
+	Employee e;
+	char moredata;
+	fstream iofile;
+	iofile.open("Employee27.txt",ios::out|ios::in);
+	if(!iofile.is_open()){
+		cout<<"  Error to file open."<<endl;
+		exit(0);
+	}
+	
+	do{
+		e.add_employee_detail();
+		iofile.write((char * )&e, sizeof(e));
+		cout<<"  Do you want to add more Employee detail (Y/N) : ";
+		cin>>moredata;
+		count++;
+	}while(moredata == 'Y' || moredata == 'y');
+
+	/*iofile.seekg(163);
+	string line;
+	while(iofile.good()){
+	getline(iofile,line);
+	cout<<line<<endl;
+	}*/
+	while(count!=1){
+		iofile.read((char *)&e,sizeof(e));
+		e.display_employee_detail();
+	}
+	iofile.close();
+}
