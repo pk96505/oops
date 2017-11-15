@@ -43,8 +43,6 @@ void Employee::add_employee_detail(){
 	cout<<"  Enter Record Number : ";
 	cin>>record_no;
 	cout<<"  Enter name of the Employee: ";
-	fstream iofile("Employee27.txt",ios::out|ios::in|ios::app);
-	cout<<"Enter name of the Employee: ";
 	cin>>employee_name;
 	cout<<"  Enter Employee ID : ";
 	cin>>employee_id;
@@ -53,15 +51,10 @@ void Employee::add_employee_detail(){
 	cout<<"  Enter the salary of the employee: ";
     cin>>salary;
     record++;
-	iofile<<"  Employee ID: "<<employee_id<<endl;
 	cout<<"Enter date of birth in the format of dd/mm/yyyy: ";
-    	cin>>D_O_B;
-	iofile<<"  Employee DOB : "<<D_O_B<<endl;
-    	cout<<"Enter the salary of the employee: ";
-    	cin>>salary;
-	iofile<<"  Salary : "<<salary<<endl;
-	iofile<<endl<<"................................."<<endl;
-	iofile.close();
+    cin>>D_O_B;
+    cout<<"Enter the salary of the employee: ";
+    cin>>salary;
 }
 
 int main(){
@@ -78,14 +71,13 @@ int main(){
 	}
 
 	do{
-<<<<<<< HEAD
 		e.add_employee_detail();
 		iofile.write((char * )&e, sizeof(e));
 		cout<<"  Do you want to add more Employee detail (Y/N) : ";
 		cout<<sizeof(e);
 		cin>>moredata;
 	}while(moredata == 'Y' || moredata == 'y');
-=======
+	do{
 		cout<<endl<<"  1.Add new Employee detail to list."<<endl;
 		cout<<"  2.Go to Main manu."<<endl;
 		cout<<endl<<"  Enter your choice : ";
@@ -99,7 +91,6 @@ int main(){
 				cin>>moredata;
 				count++;
 			}while(moredata == 'Y' || moredata == 'y');
->>>>>>> 61856c031db1027fe4797e56e178a763e62a6fbf
 
 			case 2 :
 			do{
@@ -137,7 +128,7 @@ int main(){
 						e.display_employee_detail();
 					}
 					break;
-
+                        
 					case 4 :
 					cout<<"  Enter Record No. : ";
 					cin>>rn;
@@ -151,3 +142,4 @@ int main(){
 	}while(true);
 	iofile.close();
 }
+
