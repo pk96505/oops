@@ -7,7 +7,7 @@ T square(T x){
 	return x*x;
 }
 
-int main(void){
+int main(){
 	int i=2,ii;
 	float x=2.2,xx;
 	double y=2.2,yy;
