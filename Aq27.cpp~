@@ -18,8 +18,11 @@ public:
 	}
 };
 
+<<<<<<< HEAD
+=======
 int id = 1;
 
+>>>>>>> c6840e97e8c57fc84e7ea37bf29aefb5d6c5d0be
 void Employee::display_employee_detail(){
 	cout<<endl<<"................................."<<endl;
 	cout<<endl<< "  Name of the Employee: "<<employee_name<<endl;
@@ -30,6 +33,20 @@ void Employee::display_employee_detail(){
 	}
 
 void Employee::add_employee_detail(){
+<<<<<<< HEAD
+	cout<<"Enter name of the Employee: ";
+	cin>>employee_name;
+	cout<<"  Enter Employee ID : ";
+	cin>>employee_id;
+	cout<<"Enter date of birth in the format of dd/mm/yyyy: ";
+    	cin>>D_O_B;
+	cout<<"Enter the salary of the employee: ";
+    	cin>>salary;
+}
+
+int main(){
+	int i=0,count=0;
+=======
 	fstream iofile("Employee27.txt",ios::out|ios::in|ios::app);
 	iofile<<endl<<"................................."<<endl;
 	cout<<"Enter name of the Employee: ";
@@ -51,6 +68,7 @@ void Employee::add_employee_detail(){
 
 int main(){
 	int i=0;
+>>>>>>> c6840e97e8c57fc84e7ea37bf29aefb5d6c5d0be
 	Employee e;
 	char moredata;
 	fstream iofile;
@@ -62,6 +80,15 @@ int main(){
 	
 	do{
 		e.add_employee_detail();
+<<<<<<< HEAD
+		iofile.write((char * )&e, sizeof(e));
+		cout<<"  Do you want to add more Employee detail (Y/N) : ";
+		cin>>moredata;
+		count++;
+	}while(moredata == 'Y' || moredata == 'y');
+
+	/*iofile.seekg(163);
+=======
 		//iofile.write((char * )&e, sizeof(e));
 		cout<<"  Do you want to add more Employee detail (Y/N) : ";
 		cout<<sizeof(e);
@@ -69,10 +96,18 @@ int main(){
 	}while(moredata == 'Y' || moredata == 'y');
 
 	iofile.seekg(163);
+>>>>>>> c6840e97e8c57fc84e7ea37bf29aefb5d6c5d0be
 	string line;
 	while(iofile.good()){
 	getline(iofile,line);
 	cout<<line<<endl;
+<<<<<<< HEAD
+	}*/
+	while(count!=1){
+		iofile.read((char *)&e,sizeof(e));
+		e.display_employee_detail();
+=======
+>>>>>>> c6840e97e8c57fc84e7ea37bf29aefb5d6c5d0be
 	}
 	iofile.close();
 }
