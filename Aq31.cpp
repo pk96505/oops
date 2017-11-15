@@ -30,19 +30,23 @@ public:
 			array[i] = array[j];
 			array[j] = temp;
 		}
+		cout<<"  Reverse : ";
 		for(int k=1; k<size+1; k++){
-			cout<<array[k];
+			cout<<array[k]<<"  ";
 		}
 		cout<<endl;
 	}
 };
 
 int main(){
-	R<char> i(5);
+	R<int> i(5);
+	R<char> c(5);
 	R<float> f(5);
 	i.setarray();
 	i.reverse();
+	c.setarray();
+	c.reverse();
 	f.setarray();
-	f.setarray();
+	f.reverse();
 	return 0;
 }

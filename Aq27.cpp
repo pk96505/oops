@@ -51,8 +51,6 @@ void Employee::add_employee_detail(){
 	cout<<"  Enter the salary of the employee: ";
     cin>>salary;
     record++;
-	cout<<"Enter date of birth in the format of dd/mm/yyyy: ";
-    cin>>D_O_B;
     cout<<"Enter the salary of the employee: ";
     cin>>salary;
 }
