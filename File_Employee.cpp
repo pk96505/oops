@@ -77,27 +77,21 @@ int main(){
 	fstream iofile;
 	Employee e;
 	char moredata;
-<<<<<<< HEAD
 	iofile.open("Employee.txt",ios::in | ios::out );
 	iofile.open("Emp.dat",ios::binary|ios::out|ios::in);
-=======
 	iofile.open("Emp.txt",ios::out|ios::in|ios::app);
->>>>>>> a5281199861971669b2acc5c1382cd161e05c525
-
 	if(iofile.fail()){
 		cout<<"  Error to file open.";
 		exit(0);
 	}
 
 	do{
-<<<<<<< HEAD
 		e.add_employee_detail();
 		iofile.write((char *) & e, sizeof(e));
 		cout<<"  Do you want to add more Employee detail (Y/N) : ";
 		cin>>moredata;
 		}while(moredata == 'Y');
 		iofile.close();
-	}while(moredata == 'Y' || moredata == 'y');
 	iofile.seekg(0,ios::beg);
 	while(iofile.read((char * )&e, sizeof(e)))
 	{
@@ -106,7 +100,6 @@ int main(){
 				break;
 	}		
 	iofile.close();
-=======
 		cout<<endl<<"  1.Add new Employee to list."<<endl;
 		cout<<"  2.Display Employee detail."<<endl;
 		cout<<"  3.Get the record by name of Employee."<<endl;
@@ -140,5 +133,4 @@ int main(){
 		}
 	}while(true);	
 iofile.close();
->>>>>>> a5281199861971669b2acc5c1382cd161e05c525
 }

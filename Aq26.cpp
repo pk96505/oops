@@ -1,43 +1,97 @@
 #include <iostream>
 #include <fstream>
-#include <cstring>
-#include <iomanip>
-
+#include <cstdlib>
+#include <string>
 using namespace std;
-
-ostream & form (ostream & out){
-	out<<setw(10);
-	out.setf(ios::right,ios::adjustfield);
-	out<<setprecision(2);
-	out<<setfill('*');
-	out.setf(ios::showpos);
-	return out;
-}
-
-int main(int argc, char * agrv[]){
-	if(4!=argc){
-		cout<<"  Error while opening the file"<<endl;
+class Emp{
+	int ID;
+	string Name;
+	double sal;
+public:
+	void getEmp(){
+		cout<<"  Enter Employee's ID : "; 
+		cin>>ID;
+		cout<<"  Name : ";
+		cin>>Name;
+		cout<<"  Salary: ";
+		cin>>sal;
 	}
-
-	fstream float_file("Aq26_float.txt",ios::in);
-	fstream string_file("Aq26_string.txt",ios::in);
-	fstream merge_file("Aq26_merge.txt",ios::out|ios::in|ios::trunc);
-	if(!float_file.is_open()||!string_file.is_open()){
-		cout<<"Error while opening the file";
+	void disp(){
+		cout<<"  Employee details : \n ";
+		cout<<"Name: "<<Name<<"\nID: "<<ID<<"\nSalary: "<<sal<<endl;
 	}
-	else{
-		
-		float_file.seekg(0);
-		string_file.seekg(0);
-		string ch;
-		string st;
-		while(float_file.good()&&string_file.good()){
-			getline(float_file,ch);
-			getline(string_file,st);
-			merge_file<<ch<<form<<st<<endl;
+	int getID(){ 
+		return ID; 
+	}
+	string getName(){ 
+		return Name; 
+	}
+	double getSal(){ 
+	return sal; 
+	}
+	double updateSal(){ 
+	sal= sal + (0.1 * sal); 
+	return sal;
+	}
+};
+
+int main(){
+	fstream file;
+	file.open("employee.txt", ios::out | ios::in);
+	if(!file.is_open()){
+		cout<<"Error in opening File\n";
+		exit(0);
+	}
+	Emp e[2];
+	for(int j=0;j<2;j++){
+		e[j].getEmp();
+		file.write((char *) & e[j],sizeof(e[j]));
+	}
+	int choice;
+	string n;
+	int id,id2;
+	cout<<"1.Search record by name.\n2.Search record by ID.\n";
+	cout<<"3.Update salary.\n";
+	cout<<"Please select an option to proceed\n";
+	while(1){
+		cin>>choice;
+		switch(choice){
+			case 1: cout<<"Enter the name: ";
+			cin>>n;
+			file.seekg(0);
+			for(int i1=0;i1<2;i1++){
+			file.read((char *) & e[i1], sizeof(e[i1]));
+				file.seekg(0,ios::cur);
+				if(n == e[i1].getName())
+				e[i1].disp();
+		    }
+			break;
+
+			case 2: cout<<"Enter ID: ";
+			cin>>id;
+			file.seekg(0);
+			for(int k=0;k<2;k++){
+				file.read((char *) & e[k], sizeof(e[k]));
+				file.seekg(0,ios::cur);
+				if(id == e[k].getID())
+				e[k].disp();
+			}
+			break;
+
+			case 3: cout<<"Enter ID: ";
+			cin>>id2;
+			file.seekg(0);
+			for(int m=0;m<2;m++){
+				file.read((char *) & e[m], sizeof(e[m]));
+				file.seekg(0,ios::cur);
+				if(id2==e[m].getID()){
+					e[m].updateSal();
+					cout<<"\nUpdated record- ";
+					e[m].disp();
+				}
+			}
+
+			break;
 		}
 	}
-	float_file.close();
-	string_file.close();
-	merge_file.close();
 }
