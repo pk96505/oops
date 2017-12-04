@@ -9,7 +9,7 @@ public:
     matrix (int n1, int n2);
     int elementvalue(int i,int j);
     void getelement(int i,int j,int value);
-    void displayelement(int n1,int n2);
+    void displayelement();
 };
 
 matrix::matrix(int n1,int n2){
@@ -25,12 +25,10 @@ void matrix::getelement(int i,int j,int value){
     p[i][j]=value;
 }
 
-void matrix::displayelement(int n1,int n2){
-    r=n1;
-    c=n2;
-    for(int i=0 ; i<n1 ; i++ ){
+void matrix::displayelement(){
+    for(int i=0 ; i<r ; i++ ){
         cout<<endl<<"  ";
-        for(int j=0 ; j<n2 ; j++){
+        for(int j=0 ; j<c ; j++){
             cout<<p[i][j]<<"\t";
         }
     }
@@ -68,9 +66,9 @@ int main(){
         }
     }
     cout<<"  Matrix1 : "<<endl;
-    m1.displayelement(n,m);
+    m1.displayelement();
     cout<<endl<<"  Matrix2 : "<<endl;
-    m2.displayelement(n,m);
+    m2.displayelement();
     
     for(int i=0;i<n;i++)
         for(int j=0;j<m;j++){
@@ -78,7 +76,7 @@ int main(){
             m3.getelement(j,i,value);
         }
     cout<<"  Transpose of Matrix1 : "<<endl;
-    m3.displayelement(n,m);
+    m3.displayelement();
     
     
     return 0;
