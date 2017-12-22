@@ -4,7 +4,6 @@ using namespace std;
 
 int main(){
 	int *add;
-	add = new int;
 	int val;
 	int R, C, count = 0;
 	cout<<"  Enter row : ";
